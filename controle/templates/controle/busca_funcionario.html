@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buscar Funcionário</title>
+  <link href="{% static 'controle/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<form  class="form-control" method="POST">
+     {% csrf_token %}
+<div class="container">
+  <h1>
+      {% if nome %}
+      informação pesquisada: {{ nome }}
+      {% endif %}
+  </h1>
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        {{form}}
+
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Buscar">
+    </div>
+  </form>
+      {% for funcionario in funcionarios %}
+             <font color="black">
+               <h3>
+                <a href="{% url 'update_funcionario' funcionario.id %}">{{funcionario.nome}}</a>
+               </h3>
+            </font>
+      {% endfor %}
+
+</div>
+<a href="{% url 'index'%}"><input type="submit" value="Voltar"></a>
+</body>
+</html>

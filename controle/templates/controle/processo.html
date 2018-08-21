@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Efetuar Empréstimo</title>
+  <link href="{% static 'controle/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<form  class="form-control" method="POST">
+     {% csrf_token %}
+<div class="container">
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="clientenome">Nome do Cliente:</label>
+        {{ form.cliente}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="cpf">Nome do Funcionário:</label>
+        {{ form.funcionario }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="telefone">Nome do livro:</label>
+      {{ form.livro}}
+      </div>
+    </div>
+    <div class="row">
+      <input type="hidden" name="emprestimo" value="{{ True }}">
+
+      <input type="submit" value="Salvar">
+    </div>
+  </form>
+</div>
+    <a href="{% url 'index'%}"><input type="submit" value="Voltar"></a>
+</body>
+</html>

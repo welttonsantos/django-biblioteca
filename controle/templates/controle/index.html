@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link href="{% static 'controle/css/style.css' %}" rel="stylesheet">
+<title>Bem vindo!!</title>
+</head>
+<body>
+<ul>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Cadastros</a>
+    <div class="dropdown-content">
+      <a href="criar_clientes">Clientes</a>
+      <a href="criar_funcionario">Funcionários</a>
+      <a href="criar_livro">Livros</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Busca, Alteração e Exclusão</a>
+    <div class="dropdown-content">
+      <a href="busca_cliente">Cliente</a>
+      <a href="busca_funcionario">funcionario</a>
+      <a href="busca_livro">Livros</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Empréstimos e devoluções</a>
+    <div class="dropdown-content">
+      <a href="processo">Empréstimo</a>
+      <a href="busca_processo">Devolução</a>
+
+    </div>
+  </li>
+</ul>
+
+</body>
+</html>

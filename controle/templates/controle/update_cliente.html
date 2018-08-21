@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="{% static 'controle/css/style.css' %}" rel="stylesheet">
+<title>Alteração de Dados</title>
+</head>
+<body>
+
+<font color="White"><h1 align="center">{{cliente.nome}}</h1></font>
+<form  class="form-control" method="POST">
+     {% csrf_token %}
+<div class="container">
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="clientenome">Nome:</label>
+        {{ form.nome}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="cpf">CPF:</label>
+        {{ form.cpf }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="telefone">TELEFONE:</label>
+      {{ form.telefone }}
+      </div>
+    </div>
+    <div class="row"><br>
+      <input type="submit" value="Salvar Alterações">
+    </div>
+  </form>
+  <br>
+
+  <br>
+  <br>
+  <a href ="/delete/cliente/{{ cliente.id }}"><button type="button" class="botao" onclick="alert('Cliente {{ cliente.nome }} excluido')">Excluir</button></a>
+  <a href="{% url 'busca_cliente'%}"><button type="button" class="botao">Voltar</button></a>
+
+</div>
+</body>
+</html>

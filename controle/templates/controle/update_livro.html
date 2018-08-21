@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link href="{% static 'controle/css/style.css' %}" rel="stylesheet">
+<title>Alteração de Dados</title>
+</head>
+<body>
+
+<font color="White"><h1 align="center">{{livro.nome}}</h1></font>
+<form  class="form-control" method="POST">
+     {% csrf_token %}
+     <div class="container">
+       <form action="/action_page.php">
+     <div class="row">
+       <div class="col-25">
+         <label for="livronome">Nome:</label>
+         {{ form.nome}}
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-25">
+         <label for="descricao">Descrição:</label>
+        {{ form.descricao }}
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-25">
+         <label for="quantidade">Quantidade Paginas:</label>
+      {{ form.quantidade }}
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-25">
+         <label for="autor">Autor:</label>
+         {{ form.autor }}
+       </div>
+     </div>
+     <br>
+      <input type="submit" value="Salvar Alterações">
+</form>
+
+  <br>
+  <br>
+  <a href ="/delete/livro/{{ livro.id }}"><button type="button" class="botao" onclick="alert('Livro {{ livro.nome }} excluido')">Excluir</button></a>
+  <a href="{% url 'busca_livro'%}"><button type="button" class="botao">Voltar</button></a>
+  <br>
+
+</form>
+</div>
+</body>
+</html>
